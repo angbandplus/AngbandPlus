@@ -1,0 +1,97 @@
+# q000eric.txt
+
+# Name
+Q:15:N:Klingsor's Stronghold
+
+# type:num_mon:cur_num:max_num:level:r_idx:k_idx
+Q:15:Q:1:0:0:1:70:Klingsor, Evil Master of Magic:0:2
+
+# Description for quest
+?:[LEQ $QUEST15 2]
+Q:15:T:Klingsor, the evil master of magic, stole the holy Spear of Destiny
+Q:15:T:and hid it in a faraway castle.  It is your task to defeat him and
+Q:15:T:recover the spear - it would help us greatly in our struggle against
+Q:15:T:Morgoth
+?:1
+
+# Description for quest reward
+?:[EQU $QUEST15 3]
+Q:15:T:You have done well. Please accept this reward. You may also keep
+Q:15:T:the spear.
+?:1
+
+# Deep water
+F:W:83:8
+
+# Tree
+F:T:96
+
+# Normal wall
+F:#:56
+
+# Floor + skeleton
+F:a:1:8:Skeleton human
+
+# Floor + ninja
+F:b:1:8:Ninja
+
+# Floor + demonologist
+F:c:1:8:Demonologist
+
+# Floor + death knight
+F:d:1:8:Death Knight
+
+# Floor + necromancer
+F:e:1:8:Necromancer
+
+# Floor + sorcerer
+F:f:1:8:Sorcerer
+
+# Floor + Anti-paladin
+F:g:1:8:Anti-paladin
+
+# Floor + grey wraith
+F:h:1:8:Grey wraith
+
+# Floor + Klingsor + item
+F:E:1:8:Klingsor, Evil Master of Magic:*
+
+# Trap
+F:^:1:8:0:0:0:0:*
+
+# Trap or OOD item
+F:$:1:8:0:*10:0:0:*
+
+# Klingor's stronghold
+D:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+D:XTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTX
+D:XTTTTTTTTTTT...........T..TT.TTTTTTTTTTTTTTTTTTTTTTTTT.TTT...........TTTTX
+D:XTTTTTTTTT......WWWWW...T..TTTTT.T..TT.TTTTTT.TT.TTT....T...WWWWW......TTX
+D:XTTTTTTT.......WW#a#WW.......T............TT...............WW#a#WW....T.TX
+D:XTTTT<TT.......W##c##WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW##e##W...TT.TX
+D:XTTT.TT........W#aaa###########.#################.###########aaa#W..TTTTTX
+D:XTT.TT...TT....WafdaD^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^DadafW...TT.TX
+D:XTT....TTT.....W#aaa##############D##########################aaa#W....TTTX
+D:XT......TTT....W##e##^^^^^^^^^^^^DbD^^^^^^^^^^^^^^#****c#gg###c##W..TTTTTX
+D:XT....TTT.TT...WW####^############D#############^^#####D#gg#b#D#WW...TTTTX
+D:XT.........TT...WW#a#^#......Dggggggggggggggggg#^^^^^^^^Dgg#bbb#W...TT.TTX
+D:XT.....TT.TT.....W#D#^#...###############################DD##D##W..TT..TTX
+D:XT......TTT.......D^^^#####***DhheeddgggDgggfgggegggdgggDccD***#W..TT...TX
+D:XT........TT......D^^^#####**EDhheeddgggDgggfgggegggdgggDccD***#W.TT....TX
+D:XTTT.......T.....W#D#^#...###############################DD##D##W.TT...TTX
+D:XTTTT...........WW#a#^#......Dggggggggggggggggg#^^^^^^^^Dgg#bbb#W..TT.TTTX
+D:XTT......T.....WW####^############D#############^^#####D#gg#b#D#WW..TTTTTX
+D:XT..TT....T....W##c##^^^^^^^^^^^^DbD^^^^^^^^^^^^^^#****c#gg###d##W...TTTTX
+D:XT.TT..T.TT....W#aaa##############D##########################aaa#W....TTTX
+D:XTTTT..TTT.....WafdaD^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^DacfaW...TTTTX
+D:XTTTTTTTT......W#aaa###########.#################.###########aaa#W...TTTTX
+D:XT..TTTT.......W##e##WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW##e##W..TTTTTX
+D:XTT..TT........WW###WW............TTT......................WW#a#WW.TTTTTTX
+D:XTTTTTTTT.......WWWWW.....TTT...TTT.TTTTTT..TTT.TTTT..TTT...WWWWW..TTTTTTX
+D:XTTTTTTTTTTT.TT........TTTT....TT.TTTTTT.TTTT.TTTT.TTTTTTTT.......TTTTTTTX
+D:XTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTX
+D:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+# Starting position
+P:5:5
+

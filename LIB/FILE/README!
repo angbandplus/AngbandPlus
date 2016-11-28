@@ -1,0 +1,51 @@
+Most files in this directory are use by the get_rnd_line function for various
+purposes in the game. They can be edited and customized by the user with any
+ascii text editor. If you add / remove lines you should modify the index (the
+first line) accordingly. If you set an invalid index or remove the buffer line
+weird messages and other things can appear, and you can crash the game. Please
+see sample.txt before you try modifying the files.
+The a_*.txt and w_*.txt are used when the game generates a random artifact.
+However, instead of picking a name from the appropriate file, the game may
+form a new name from syllables[].
+
+The following files were added specifically for GSNband: pfear, pshout, dam_*,
+sfail, m_rnames, f_rnames, verbs, friendly, monspeak
+
+The following file was removed: mdeath (both monsters and player use
+death)
+
+The following files were considerably expanded: bravado, w_high, silly,
+rumors. Contributions came from several other variants as well, particularly
+Kamband and OAngband.
+
+The files in this directory:
+
+A_CURSED TXT Possible names for randomly generated cursed armour artifacts
+A_HIGH   TXT Possible names for randomly generated 'powerful' armour artifacts
+A_LOW    TXT Possible names for randomly generated 'weak' armour artifacts
+A_MED    TXT Possible names for randomly generated 'medium' armour artifacts
+BRAVADO  TXT Possible lines for speaking uniques
+CHAINSWD TXT Possible noise for the Chainsword
+CRIME    TXT Possible crimes that killed uniques may have committed
+DEAD     TXT The tombstone picture (the death screen)
+DEATH    TXT Possible 'last words' when the player dies
+ELVISH   TXT Syllables for the names of random artifacts
+F_RNAMES TXT Random female names for the character
+FRIENDLY TXT Possible lines for friendly speaking uniques
+ERROR    TXT Possible random error messages (instead of "Type ? for help")
+MONFEAR  TXT Possible lines for scared speaking uniques
+MONSPEAK TXT Possible lines for uniques
+M_RNAMES TXT Random male names for the character
+NEWS     TXT The game intro screen
+README!      You are reading this file right now
+PFEAR    TXT Possible player fear messages (instead of "You're too afraid to
+	     attack")
+PSHOUT   TXT Possible shouting lines
+RUMORS   TXT Possible rumours (for scrolls or rumour and shopkeepers)
+SAMPLE   TXT A sample file for the random line selecting function
+SFAIL    TXT Sample lines when failing a spell
+SILLY    TXT Silly monster names for hallucination
+W_CURSED TXT Possible names for randomly generated cursed weapon artifacts
+W_HIGH   TXT Possible names for randomly generated 'powerful' weapon artifacts
+W_LOW    TXT Possible names for randomly generated 'weak' weapon artifacts
+W_MED    TXT Possible names for randomly generated 'medium' weapon artifacts

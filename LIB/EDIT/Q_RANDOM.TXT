@@ -1,0 +1,32 @@
+# q_random.txt
+
+
+Q:40:N:Random Quest
+Q:40:Q:7:0:0:0:74:0:0
+
+Q:41:N:Random Quest
+Q:41:Q:7:0:0:0:70:0:0
+
+Q:42:N:Random Quest
+Q:42:Q:7:0:0:0:66:0:0
+
+Q:43:N:Random Quest
+Q:43:Q:7:0:0:0:62:0:0
+
+Q:44:N:Random Quest
+Q:44:Q:7:0:0:0:60:0:0
+
+Q:45:N:Random Quest
+Q:45:Q:7:0:0:0:64:0:0
+
+Q:46:N:Random Quest
+Q:46:Q:7:0:0:0:68:0:0
+
+Q:47:N:Random Quest
+Q:47:Q:7:0:0:0:72:0:0
+
+Q:48:N:Random Quest
+Q:48:Q:7:0:0:0:76:0:0
+
+Q:49:N:Random Quest
+Q:49:Q:7:0:0:0:80:0:0

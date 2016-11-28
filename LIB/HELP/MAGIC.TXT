@@ -1,0 +1,329 @@
+
+=== Introduction to the GSNband (since 0.5) Magic System ===
+
+(Since 1.2 - includes mindcraft explanation, see end of file)
+
+In the official releases of Angband there are only two types magic
+spells:  Magic spells and priestly prayers.  If the character is a
+mage, ranger or a rogue  (s)he can learn magic spells; if (s)he is
+a priest  or  a paladin,  (s)he  can learn prayers.  All mages can
+learn the same spells and all priests can learn the same prayers.
+
+GSNband  has  switched to using  a more complex  "realms of magic"
+system.  Priestly magic is retained as the realm of Life. There is
+also an opposite realm of Death, or necromantic magic. The bulk of
+magic  spells  is represented by four elemental realms (fire, air,
+earth,  water).  The  first three took over old Chaos, Sorcery and
+Nature  magics  from  ZAngband.  Water  is  a completely new magic
+realm.
+
+Last  but  not  least,  Arcane  magic  is  viewed as "a little  of
+everything"  realm.  Arcane  users have access to the power of all
+elements,   but   they  are   nowhere  as  powerful  as  the  more
+specialized magicians.
+
+In standard Angband,  the type of a character's spell ability was
+determined  solely by  the  character  class.  In  GSNband,   all
+classes can select one  (or even two)  types  from  the realms of
+magic available. (See  later  for available realms / class.)
+
+In standard Angband, there were 9 spellbooks for all spellcasters.
+In  GSNband,  there are four spellbooks per realm. Two of them can
+be bought in a store (Life spellbooks in the town temple, the rest
+in  the  magic  shop;  of  course the Black market may stock _any_
+spellbook).  The  new  Arcane  realm is an exception to this rule:
+Arcane  magic  has no high level spellbooks; all Arcane spellbooks
+can  be bought in the magic shop. Just as one might expect, Arcane
+magic lacks the really powerful high level spells.
+
+A  character  with  two  realms of magic will thus need to carry a
+maximum  of  8 spellbooks while a character with only one realm of
+magic (paladins and rogues) will only need to carry a maximum of 4
+spellbooks.  All realms have 32 spells, and each book has 8 spells
+(the two last spells of Water are not yet implemented - GSN)
+
+
+
+=== Character Classes and Spell Ability  ===
+
+WARRIORS:  Warriors cast no spells. They hate magic. In fact, they
+even gain experience for destroying high level spellbooks.
+
+MAGES: Mages have the least restrictions  in choosing and learning
+spells. They can freely choose any  two realms when a character is
+created: in the current version, all seven realms are available to
+them,  although their natural inclination makes Life magic  fairly
+hard for them.  Otherwise, a mage tends to learn and cast all  the
+spells  in his / her realms better than any  other  character. The
+ability   select  both realms  of  magic (which no other character
+class can do)  allows  the  best  support  for  experimenting  and
+combining  different  realms,  and, thus,  for  different  playing
+strategies as well.
+
+PRIESTS:   There  are  two  types  of  priests  in  Zangband:  the
+'ordinary'  priests  who,  select  Life  magic  as  their  primary
+realm,  and  the 'dark' priests, who select Death magic instead of
+Life  magic.  No  priest  can  have  both realms (unless (s)he was
+created  in  Zangband  2.0.0  or 2.0.1). Priests can also select a
+secondary  realm from the other five realms, and should be able to
+learn  all  spells  in  it  as well, even if not as efficiently as
+mages.  However,  when learning spells, priests cannot voluntarily
+decide  which  spells to study: they are rewarded with new prayers
+by   their   patron   deities,  with  no  money-back  satisfaction
+guarantee.  It  should  also  be  noted  that  since  the  natural
+inclination  of a priest is towards Life magic, priests who select
+Life  magic  will be able to learn their prayers faster and better
+than their evil colleagues with Death magic.
+
+ROGUES:  There  are  several  subtypes  of Rogues in Zangband: the
+exact  'type'  is  determined  by the realm of magic chosen by the
+Rogue. The common Thief, agent of the underworld, will probably be
+content with Arcane magic and its wide applicability. The Burglar,
+on  the  other  hand,  is more interested in the Air spells, which
+allow  him  or  her  to  do  the  job  fast  and  efficiently. The
+Assassins'  partiality for Death magic is well known, and they are
+feared for it.
+
+RANGERS:  All  rangers  are  trained in Earth magic, and all Earth
+spells  are available to them. They even learn these spells almost
+as  fast  as  mages.  They can also select a secondary realm (from
+Arcane, Air, Fire, Water and Death), but they are slow learners in
+them,  and may find themselves unable to learn some of the highest
+level spells.
+
+PALADINS:  Paladins  are  trained  in  Life magic (only), and they
+despise  the  other  realms  of  magic  (which  they regard as the
+devil's  work).  Like priests, they cannot select which prayers to
+learn but are rewarded with new prayers by their deities. They can
+learn  all  Life  spells,  but not as fast as priests. In the most
+recent versions, there is a new subtype of the paladins: the Death
+Knight. Death Knights study Death magic instead of Life magic, but
+in  other  respects  they  are  similar  to normal paladins. Death
+Knights  can  learn  all  Death spells. The endless enmity between
+these  two  subtypes  is  most evident in their attitudes to other
+realms  of  magic: an 'ordinary' detests the other realms of magic
+(than  Life)  so strongly that he or she will even gain experience
+for destroying their high-level spellbooks. A Death Knight, on the
+other  hand,  is  very  tolerant  of  the other realms -- to annoy
+Paladins,  perhaps,  if  for no other reason. A Death Knight will,
+however, be very offended by the sight of Life spellbook, and will
+do  anything  to  destroy  it;  and this will even give him or her
+experience, if the Life spellbook in question is a high-level one.
+
+WARRIOR-MAGES: Warrior-mages begin the game with Arcane magic, and
+they  can  freely  select another realm of magic. Although they do
+not gain new spells as fast as regular mages, they will eventually
+learn  every  spell in both realms, thus making a very competitive
+choice for players who appreciate Arcane magic.
+
+CHAOS WARRIORS: Chaos Warriors are trained in Fire magic, which is
+closely  associated  with  Chaos.  They  are not interested in any
+other form of magic. They can learn every Fire spell.
+
+MONKS: The different sects of monks are devoted to different areas
+of  magic.  The  typical  monk is interested in the harmony of the
+nature,  and  studies  Earth magic.  An idealist monk would select
+Life  magic, and try work to benefit his neighbour. But there also
+are  dark  monks,  who  specialize in Death magic. A monk can thus
+select  any  one of these three realms. They will eventually learn
+all prayers in the discipline of their choice.
+
+MINDCRAFTER:  Although  the  powers of a Mindcrafter may seem like
+magic,  this  is  not  --  strictly speaking -- the case. They are
+mental  powers,  independent  of  the  ordinary  sources of magic.
+Consequently,  Mindcrafters  are  not  interested  in  'magic' and
+learn no spells (but see below for their own domain, mindcraft).
+
+HIGH MAGE: High mages are mages who specialize in one particular
+field of magic  and learn it  very well --  much better than the
+ordinary mage.  For  the price of giving up a  second  realm  of
+magic, they gain substantial benefits in the mana costs, minimum
+levels,  and failure rates  in the spells of  the realm of their
+specialty.
+
+
+=== The Realms of Magic ===
+
+General note: all elemental realms have the following common spells,
+each tied to their respective element:
+
+  * a low-level minor bolt attack, with some chance of becoming a beam
+  * spell giving timed resistance to the element
+  * gate spell (a weak radius 2 ball + teleport)
+  * a stronger bolt or ball spell(s), or both types
+  * conjuring spirits, elementals and greater elementals (this
+    doesn't work properly if you have two elemental realms,
+    though)
+
+LIFE: Life is magic is 'good' magic; it relies mostly on healing
+and protective spells. It does have a few attack spells as well,
+but these are mostly used for harming and banishing foul minions
+of evil. It is rumoured that there is a secret high level prayer
+which  will  make the  priest (or paladin)  highly impervious to
+all forms of hostile action.
+
+ARCANE:  Arcane  magic  is  a  general  purpose realm of magic. It
+attempts  to  encompass  all  'useful' spells from all realms, and
+almost  succeeds,  with the probable exception of *Identify*. This
+is  the  downside  of Arcane magic: while Arcane does have all the
+necessary   'tool'   spells  for  a  dungeon  delver,  it  has  no
+ultra-powerful  high  level  spells.  As a consequence, all Arcane
+spellbooks can be bought in town. It should also be noted that the
+'specialized'  realms  (i.e.  other than Arcane) usually offer the
+same  spell  at  a lower level and cost. Arcane magic is therefore
+perhaps  not  recommendable  as  one's only realm of magic, but it
+should  be  a  very  nice  addition  to  fill  up  the gaps in the
+selection of tools spells in another realm.
+
+AIR:  Air  is the element of speed, rapid movement and discretion.
+Air  spells  afford  you convenient and cheap means to escape your
+enemies  via teleportation, and at higher levels you can even gain
+control  over it.  Air is associated with electricity attacks, and
+can  also  help you protect yourself from them. Finally, Air magic
+is rumoured to give its high-level casters a protective aura which
+greatly decreases their chance of being hit by enemies.
+
+WATER:  Water  is perhaps the most original of all magic realms in
+GSNband.  It  is  the  source  of life and growth, so Water spells
+give  you  means  to  restore  your  life force by robbing another
+living  creature  from  it,  or they can give your weapon a chance
+to  become  a  powerful  ego-item if you can find a proper monster
+corpse  and  chant  the  spell called Transfer Life over it. Water
+is  associated  with  cold  attacks, and can also help you protect
+yourself  from them. Finally, Water magic gives you several spells
+with which you can influence and command aquatic creatures.
+
+EARTH:  Having  harnessed  the  forces  of  nature, an experienced
+Earth magic  user  is  able  to befriend  animals,  magically feed
+himself  while journeying, use the healing powers of earth to cure
+his  wounds  and  remove poison effects, and detect things around.
+Earth  is  associated  with  acid  attacks,  and can also help you
+protect yourself from them.
+
+FIRE: Fire is the most destructive element. Those choosing fire as
+their  magic realm find themselves possessing an array of powerful
+offensive  spells,  even  though  they  are  often  lacking on the
+defensive  side. At higher levels, they can also attempt to invoke
+the  dreadful  powers of raw chaos, which can wreak havoc over the
+whole  dungeon  level,  as well as using those powers to polymorph
+themselves  into  another  race.  It  is also possible for them to
+summon  fearsome  demons as their servants. Be wary, though, since
+failed  fire  or chaos spells will vent their destructive force on
+wild magic effects, which are mostly harmful to you.
+
+DEATH:  There  is  no fouler nor more evil category of spells than
+the necromantic spells of Death Magic. These spells are relatively
+hard  to  learn,  but  at higher levels the spells give the caster
+power  over  living  and  the  (un)dead.  Poison, vampirism, death
+spells  and  even  hellfire can be directed by the caster, but the
+most  powerful spells need his / her own blood as the focus, often
+hurting  the  caster  in  the  process  of casting. Should a Death
+wizard find the legendary tome Necronomicon, he can expect to gain
+very  great  powers  indeed,  but at a cost: few that have studied
+the accursed tome have retained their sanity.
+
+
+=== Notes on Summoned / Charmed Creatures ===
+
+A  friendly  creature can be a mixed blessing. At first sight, one
+might  think  that  they  can  make the game much easier. It is of
+course  highly  satisfying to send your pet Hell Wyrm into a Troll
+pit and wait outside, listening for the howls of agony and terror,
+the sounds of guts splattering, bones crunching and so on. But one
+should  not  expect  to gain any experience for such a combat: you
+will  only  gain  experience for creatures to whom you deliver the
+death blow yourself. New experiences require hazards, nobody gains
+experience by sitting home watching the TV.
+
+Secondly,  friendly  monsters  are  often so eager to destroy your
+opponents  they  may  forget  all  about you, and you get trampled
+under their feet as they charge at your foe. They are not as smart
+as  the regular monsters, since they have given up their free will
+to  serve  you.  So  don't  stand next to that Snaga when your pet
+Cyberdemon  brandishes  its  rocket launcher! Pets are also rather
+easily irritable. Once you do something which causes the slightest
+discomfort to them, they will revert to their normal behaviour and
+consider  you  their main target. This is something to think about
+before  lighting  up a room if you have pet orcs. Needless to say,
+nobody  wants  to  be  your  friend  if  you are aggravating them.
+Finally,  it  takes a lot of mental energy to maintain the control
+over  the charmed monsters. The first monster or the first few are
+'free',  but  after that maintaining the control will start taxing
+your  mana  regain  rate. The higher the sum of the levels of your
+pets  the  less mana you will be able to regain. Keep this in mind
+if  you  have  a  pet  which  can summon or otherwise produce more
+pets...
+
+
+=== Hints and Tips ===
+
+If  you miss the `old` magic user, try picking Air or Arcane magic
+to  get  the  most  commonly  used  mage  spells  early  on (Magic
+Missile, Detect Monsters + Traps + etc, Identify).
+
+It  is  generally  a good idea to pick one defensive realm and one
+offensive  realm.  For  example try using Life or Air with Fire or
+Death  magic. Earth is somewhat neutral: it has both offensive and
+defensive  spells,  but  is  not very generous with either, not at
+least  early  in  the game. Earth should work best with characters
+who  can  use  other  means  to  survive  until  they get the more
+powerful high level spells.
+
+If you pick the realms always in the same order (e.g. nature
+as  your first realm and chaos as your second realm, not the
+other way around)  you will be less confused  when trying to
+pick the correct spellbook to use in the game.
+
+If you still get confused trying to select the correct spellbook,
+try using macros (either the 'full' macros or inscriptions).
+
+=== Mindcraft ===
+
+The art of psionics, also called mindcraft, involves considerable effort
+on the part of the practicioner if unaided. Fortunately, the link between 
+the stores of mental energy and their outward display shaped by thought
+can be facilitated using the so-called foci, or small mysterious necklaces
+made of adamantite and therefore invulnerable to elements.
+
+There are five psionic disciplines from which a beginner mindcrafter can
+choose from; bonuses from wearing the corresponding focus are given
+in parentheses. You start with the focus for the discipline you choose; you
+must find the others somewhere or buy them in the library (they appear there
+from time to time).
+
+You receive some bonuses (lower failure rates and some increased effects) when
+using powers from your starting discipline. In the long run, however, you
+will need all five foci to survive in the depths of Angband.
+
+1) Telepathy - the most basic and easiest discipline, it permits contact
+with other minds, possibly in order to damage or otherwise confuse them.
+(+2 INT, WIS, CHR)
+
+2) Psychoportation - deals with transporting the player or those of his
+choice from place to place. The most powerful powers from this discipline
+can bar using it to others, resulting in total impossibility to teleport
+in the given area (one dungeon level)
+(+2 DEX)
+
+3) Psychometabolism - is able to convert internal mind reserves into
+swift healing effects, better reactions (AC), and even into an incorporeal
+state called Shadowform. Reverse effects can be applied to others, hurting
+them in the process.
+(+2 STR, CON, sustain CON)
+
+4) Psychokinetics - typically mind-damaging powers, augmented by the 
+Inertial Power barrier, which can greatly reduce damage sustained from
+monster breaths, but on the other hand can also increase damage from
+other types of attacks, so beware!
+(resist shards)
+
+5) Clairsentience - It can be used to sense surrounding dungeon features 
+with a power similar to echolocation, search for magical auras, or to inquire
+into the aura of an object already found.
+(+3 to searching, resist blindness)
+
+Note that beings which are mindless are immune to mind attacks and cannot
+be contacted with using telepathy. Minds of undead and demons can be detected 
+and striven with, but the probability of harmful backlashes is high. There
+is also a considerable chance that the monster will notice the intrusion,
+if it hasn't already.

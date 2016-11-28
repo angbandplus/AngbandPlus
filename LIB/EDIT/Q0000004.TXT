@@ -1,0 +1,56 @@
+# q0000004.txt
+
+# Name
+Q:4:N:The Vault
+
+# Definition
+Q:4:Q:3:0:0:0:30:0:88:2
+
+# Description for quest
+?:[LEQ $QUEST4 2]
+Q:4:T:The vault was used outside the town as a minor fortress and
+Q:4:T:stored many valuable items.  It has since been overrun.  Please
+Q:4:T:find the short sword known as Sting and return it to us!
+Q:4:T:The moment you find the sword, your quest will be complete.
+Q:4:T:While the sword could be in any of the chambers, only look
+Q:4:T:through one at a time. The monsters here are strong and there are
+Q:4:T:traps to be concerned with as well.
+?:1
+
+# Description for quest rewarding
+?:[EQU $QUEST4 3]
+Q:4:T:Please keep the sword, it will aid you in your future quests.
+?:1
+
+# Floor with "Sting"
+F:1:1:8:0:0:0:88
+
+# Dungeon
+D:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+D:X<...@X@....X....@X..@..X....@X...@X
+D:X.....X.....X.....X.....X.....X....X
+D:X.....D.....D.....D.....D.@...D....X
+D:X.....X.....X.....X.....X.....X....X
+D:X@....X@....X.@...X..@..X.....X@...X
+D:XXXDXXXXXXXXXXXXXXXXXXXXXXXXXXXXDDXX
+D:X.....X***..@@@@...........***X*..*X
+D:X..@..X*..XXXXXXXXXXXXXXXX...*X*...X
+D:X@...*X*.................XX..*X*...X
+D:XXXDXXX....XXXXXXXXXXXXX..X...X....X
+D:X.....X...XX*@.....@......X...X....X
+D:X.@...X.@.X1@@..@.........X..@X@...X
+D:X....@X...XX*@........@...X...X...@X
+D:XXXDXXX....XXXXXXXXXXXXX..X...X....X
+D:X..@..X*.....@@@@........XX...X.@.@X
+D:X.....X*..XXXXXXXXXXXXXXXX....X@.@.X
+D:X....@X***....................X@...X
+D:XXXDXXXXXXXXXXXXXXXXXXXXXXXXXXD....X
+D:X@....X***.............@...........X
+D:X.....D.....@.....@.....@.........*X
+D:X..@..D................@.........@*X
+D:X*....X*.@..............@.@.....***X
+D:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+# Starting position
+P:16:25
+

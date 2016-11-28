@@ -1,0 +1,844 @@
+
+GSNband 2.02
+
+A new and (hopefully) interesting extended variant of ZAngband
+
+GSNband is named after its author (that's me :). It is based on ZAngband
+2.2.5 and aims at enhancing it with a large number of features found in
+other *bands (especially O, S, J, Kam). It has been build and tested in
+DOS using gcc 2.7.3, but I think it should work under other systems
+too (makefiles weren't changed much).
+
+See ../lib/help/version.txt for a list of people who helped me with
+playtesting, porting and enhancing the game with new features.
+
+This is version 1.x, which is hopefully a stable and matured game. I'll
+continue the development, of course, as new ideas are constantly unearthed
+and put into practice.
+
+Savefiles from earlier versions of GSNband are not compatible with this
+release.
+
+
+Features of version 0.1.0 (finished 1.11.98, not released)
+
+* Extended recall patch
+* Blood of Life patch (a potion that allows you to cheat death once)
+* Infravision mutation improves it by random amounts
+* Golems have better histories
+* Golems have -10 to speed (duh)
+* Mages have trouble wielding anything but daggers and quarterstaffs
+* Chaos Warriors have trouble wielding anything that is not chaotic.
+  They start with a chaotic broad sword, though.
+* Monks have two new techniques at higher levels (just liked their names,
+  I guess)
+* Chaos Warriors got better sensing (similar to rogues)
+* 'great' replaces 'excellent' in many places (for consistency; the flag
+  is called DROP_GREAT)
+* Added a bunch of new monsters, mainly from Kamband (aquatic ones) - a
+  few are from the M&M RPG series (golems mainly). 'x' are eXtra-terrestrial
+  aliens; they may seem familliar, too... 950 monsters in total
+* Unfair monsters (mainly at low levels - too powerful or too easy to
+  farm)
+* Monsters resistant (half damage) or immune (not 0 damage, just VERY
+  little) to various types of weapons
+* FHotA are not undead (why should they?)
+* Monsters like Great Wyrm of Balance, who were both good and evil, are
+  now neither (it would make no sense with the lack of factual player
+  alignment). All paladins (except anti, of course) are good
+* Monster spoilers now mention the AQUATIC, CAN_SWIM, CAN_FLY and the
+  new flags
+* Neutral sex (don't ask me what's the use...)
+* Damage dice of arrows and weapons can get enhanced sometimes (O)
+* Pernament protection from evil for priests at level 50 (O)
+* Various classes get extra shots with various weapons (O)
+* Monsters harder to hit in trees, extra vulnerable if swimming (O)
+* "Seeker" sling bullets in place of peebles
+* Chaos fog as terrain (may corrupt you, so beware!)
+* Weird attacks (ego items only, no race has such an intrinsic) - more
+  deadly compared to Kam
+* Sanity (from Kam) - sanity draining also accompanies brain smashing,
+  and may be inflicted by angry deities. Low-level monsters that cause
+  insanity are considered unfair. Added ego-items of Insanity
+* Rogues can steal money from monsters (from O), adjusted this to player's
+  experience level
+* Gods (from Kam), although without sacred and hated monsters. Praying can
+  result in four outcomes: reward, "leave me alone", warning and deadly
+  retaliation. Chaos Warriors cannot worship gods (they have their patrons).
+  Gods code has been tweaked to make them less deadly if you neglect
+  to sacrifice
+* Thrown weapons - not fully implemented (O)
+
+Features added in 0.1.1 (finished 6.11.98)
+
+* Golems now have their starting speed penalty based on INT. INT of 18
+  eliminates the penalty altogether (but no positive bonuses are possible)
+* Amber-specific monsters and uniques removed. Eldritch horrors and
+  their spawn removed (except Cthulu and his minions, hmmm...) Monster
+  list renumbered (849 monsters now)
+* Artifacts returned to their original names. Dunedain come back in place of
+  Amberites. "Straight Road" replaced the Pattern
+* "Weapons of Valinor" replaced Pattern weapons
+* Gods got the names of Valar. "God" replaced with "deity" to be non-sexist.
+  The "Elder gods" are now the Deep Ones, culminating with Cthulu opposing
+  Iluvatar
+* Luck (from S). Luck influences saving throws and item generation, as well
+  as the effects of praying. Luck is not generally known to the player
+  (even when enlightened via the potion, was fixed in 0.1.2)
+* Added the NOMISS, SAMESPD monster flags, HALLU, LOSE_LUC, HUNGER
+  attacks (the HUNGER attack is currently not used by any monster)
+* Better arena levels (floor is mostly water or chaos fog)
+* Persistent dungeons (from K)
+* Black Breath (saps experience and stats occasionally, can be cured
+  by eating athelas). Weapons of Morgul now confer this
+* Hunger shown in percent on the second player info screen (actually 99%
+  means you're almost full, but it's called 'Hunger' for short. Sorry for
+  the confusion)
+
+Features added in 0.1.2
+
+* Code brought into partial conformity with Z 2.2.1
+* HURT_FIRE and HURT_COLD flags implemented. You will, however, only learn
+  about the effects when casting a spell (not when attacking with a weapon
+  of Burning/Freezing)
+* Rings of Sustaining and Resistance
+ added
+* You can no longer kick aquatic monsters in the ankle
+* Bashing an altar unsuccesfully decreases your grace (if you have any) to
+  prevent bashing abuse (bash, heal, bash, until the altar is converted)
+* Better summoning traps, spiked pits may activate the Black Breath
+* Spell blasts from angry deities now work correctly, but extracting
+  of deity name for the tombstone doesn't (you get things like 'killed
+  by a Player' or similar :)
+* Luck level can be known via the Potion of Self Knowledge, which is
+  *way* more common now (level 10 item), and can be bought in the
+  alchemy shop, too (this is a provision for future frequent luck changes
+  and the need for the player to check it rather regularly)
+* Item hitpoints (from K), only base damage rolled with a weapon is
+  substracted from HPs (prevents breaking of Daggers of Extra Attacks after
+  one round of powerful blows); for warriors, this is additionally divided
+  by two (making for the fact that warriors can't use much else to damage
+  monsters, unlike magical classes)
+  This means you can take around 50-100 hits with a weapon (better weapons
+  usually get more average hits, but the progression isn't extreme). Of
+  course the damage you do with those ~100 hits depends on your other
+  equipment and stats
+  Edged weapons are the best in this respect, followed by maces and
+  polearms. To balance this, many monsters resist swords, while polearms
+  can get unopposed through almost anything (including many high-level
+  monsters)
+* Scrolls of Repair, which can be bought in the alchemy shop, allow you
+  to wonderfully renew your weapon (this *is* magic, after all...), so
+  carry a supply of them just in case and check the weapon (the I key)
+  sometimes for signs of overuse
+* Tactics a l'ADOM, nine levels. Tactics influences AC, to-hit, to-dam,
+  stealth and saving throws (tactics is changed by pressing 't' at the
+  character screen)
+* New cheat option, allowing the player to be invulnerable to physical
+  and most spell attacks which reduce HPs
+* Two new wizard options: outfit the player (gives some great goodies
+  as inventory), and shuffle the stores.  Assigned to O and S keys,
+  respectively
+* Better descriptions of skills (from J), separate description for each
+  rating
+* Added the one thing that always bothered me: spaces after each newline
+  when processing monster descriptions, thanks to J
+* Added two new quests made up by DarkGod and available in the elvish
+  town of Angwil
+* The SAMESPD flag is removed, the code calculating energy in melee2.c
+  having repeatedly crashed the compiled Linux binary. Strange indeed!
+
+Features added in 1.0.3
+
+* Code brought into partial conformity with ZAngband 2.2.2 (incl. the
+  new quests)
+* Scrolls of Enchant Item now work on those rings which have a pval
+* Scrolls of *Remove Curse* can sometimes reverse the curse on an item
+  (a Ring of Damage [-9] becomes a [+9]). The chance increases with
+  your level, and the item must be cursed (trying to reverse an uncursed
+  bad ring will not work)
+* Returned to the old code for handling destroying of inventory items. Only
+  weapons and armor need and will use the hitpoints now
+* Potion of Extra Attacks! Now guess what's this for :-) It always works
+  the first time, but may fail later...
+* The Stone of Lore no longer gives pernament light
+* The Weaponmaster will now give you the average damage a weapon does
+* Clarified a bit what the "niceness" of a god means
+* Stupid me! I've added the naming routine to a portion of the code which
+  was #ifed out at compile time, so no wonder it didn't work! Now corpses
+  are named properly
+  No unnatural corpses will be generated (no legs of snakes, arms of
+  potion mimics and so on)
+  Eating corpses confers on you effects taken both from monster attacks
+  and their flags. It can give you timed resistances, drain experience,
+  restore mana, induce unpleasant things, and many others. I added a few
+  new flags in RF9_ for this purpose
+  Corpses are now a nice present for your deity (separate body parts may
+  be valued less). This partially solves the dilemma of sacrificing your
+  best finds to please your godly patron
+  You can choke on food, so don't be a glutton (this has to be tuned out,
+  high constitution would probably help avoid death from choking) - it
+  induces vomitting and confusion anyway, even if you make a saving throw
+* Flavored attacks (ie. colorful and sometimes plain silly messages
+  when you hit a monster) - switched off by default
+* A guild for Chaos Warriors - you can buy (draw, actually) mutations or
+  have all of them removed for a hefty price. You can also make a chaotic
+  weapon from any weapon that is not an ego-item already. Like with other
+  guilds, those services are also available for outsiders, but for a
+  considerably higher price
+* Eol, Maeglin and Ar-Pharazon added in lieu of suspicious non-Tolkienian
+  uniques (all are taken from O, Maeglin is downgraded and appears at a
+  higher depth)
+* I forgot to make Morgoth drop his goodies again... now corrected. Also
+  removed the useless artifact drops from Amberites, and added Eol dropping
+  one of his famous two swords (Arunruth or Anguirel)
+* Weapon damage depends on player's strength and monster's AC. In extreme
+  cases it can take ten times as much damage as normally possible! Warriors
+  reduce the damage loss based on their level (not a fixed divider of 2)
+* Super heal spells for Morgoth and Sauron
+* A new 'precognition' power for mindcrafters (at level 30). Lets you
+  know what OoD monsters and objects are on a level, without need for
+  cheating. The working time is limited, so it's best to cast when changing
+  levels. Note: the old 'precognition' power (detecting monsters and all),
+  has been renamed to Awareness
+* Undead start out at night
+
+Features added in 0.5 (finished 25.12.98)
+
+* First of all, fixed the dreaded "turning High Mage" bug, which, as
+  it turned out, appeared when using staves
+* Some features from ZAngband 2.2.2d added (including slower regeneration
+  and less vampiric draining for badly mutated characters)
+* Started working on the new magic system, in which fire, air and earth
+  based magic replaces chaos, sorcery and nature, respectively. Water
+  is left in lieu of trump (unfortunately). Arcane magic is also
+  rethought. Life and death remain unchanged
+  See the ../lib/help/magic.hlp file for details
+* Priests and paladins get a random minor god to start with, and some
+  starting grace (influenced by WIS)
+* Restored items of *Slay* /Foo/ to their vanilla glory
+* Roguelike command for sacrificing/god info (^O)
+* Fixed a bug with negative price for branding weapons in CW guild
+* Fixed running through and near to trees
+* Fixed removal of mutations (some messages were out of place)
+* Scrolls of Nothing can no longer be sold in shops
+* Fixed a stupid bug with some options not being saved
+* Barbarians (and only they) also get hasted when using the Berserk
+  innate ability. Spells and random berserking do not confer this
+* No sensing while berserk (by spell, mutation or racial ability)
+* Recharge service in towns works once per day - this is now explained
+* Fixed problems with some bad mushrooms being sell-able
+* Regularized the attacks hounds have (always 1 or 2 bite attacks and
+  2 claw attacks)
+* Smart monsters will not get scared while the player is confused
+* Timed blindness and confusion resistance, combined as an effect in
+  the Potion of Clear Mind (as requested by Chris Weisiger)
+* Gods will only reward you for converting altars if you're pious enough.
+  Unsuccesful bashing is rather bad for your alignment, to prevent bashing
+  abuse
+* Gaze and touch of death applied to some monsters (stay away from those
+  beholders, now...) Undead races and golems are immune
+* Timed ego properties of a weapon; all branding spells now use this.
+  Branding code is fixed to preserve to_h/to_d bonuses, if greater than
+  zero. The whole thing is a huge hack; the timeout value is used (basing
+  on the fact that a weapon should not be both artifact and ego). Damaged
+  items cannot be branded (or else it would be a repair spell too)
+  Branding in guilds will give you pernament brands, though
+  *IMPORTANT POINT* - you cannot sell weapons thus enchanted in shops,
+  to prevent making fast money!
+* Stoning attacks (only in melee) - you will get stoned in 5 turns (or
+  as much as there are given as monster "damage", but setting this
+  over 5 is not particularly sensible)
+* "Stoning bolts" as one of the Earth spells (doesn't work on uniques
+  and some (mostly nonliving) monsters). Other monsters may still
+  resist, and *you* may get hit with the reflected bolt. You have
+  been warned
+* The game reacts to phases of the moon, like NetHack. On a full moon,
+  your luck will always be positive; on a new moon, always negative.
+  On Friday 13th your luck might be very, very bad...
+* Mixing potions as one of the Water realm spells. The downside is that
+  (a) there are not very many combinations presently, (b) order matters
+  (mixing A with B is not the same as mixing B with A), (c) this can
+  be abusable to a certain extent (if you're patient enough)
+* Flooding area as one of the Water realm spells. Monsters which cannot
+  swim will start to take damage by drowning (uniques can't die by
+  drowning, though, but nearly all are able to swim)
+  This is an experimental feature, and quite buggy to boot. Monsters are
+  not very smart and will happily continue on drowning if they're "chasing"
+  you through a wall
+  There is a problem with monsters which don't move. Although some are
+  able to blink away, most (eg. mimics) will die on the spot. But you
+  can always kill a mimic with a missile/spell attack, so drowning it is
+  all too similar
+* "Transfer Life" is a spell that allows you to empower your weapon with
+  some of the effects monster attacks and properties have, via their
+  corpses. In the True version, brands are pernament. Note that if a
+  monster has, say, only one elemental attack of four, the chance of
+  getting it as a brand is 1/4
+* Corrected the graf-new.prf file, to display proper monster tiles (not
+  all monsters have tiles, as for now - this is rather annoying at moments)
+* You cannot target non-hostile monsters
+* A lot more monsters (including some baby/young dragons) have the
+  HURT_FIRE or HURT_COLD flag
+* When resting, your character will try to repair his wielded weapon. How
+  fast s/he can do it depends on their DEX
+* Warriors can buy a random slay/kill brand in their guild
+
+Features added in 0.6 and 0.6b (finished 15.1.1999)
+
+* Added most of the things present in ZAngband 2.2.3 (note: the
+  'vanilla town' option can be requested with the -t command line parameter.
+  DON'T restart a game without this switch if you started one with it,
+  or vice versa (and I mean it! Make a batch file/script. You have been
+  warned)
+* Pet commands are assigned to the P key (^P in roguelike keyset)
+* Support for X11 tiles (the 8x8 ones) has been taken from Angband 2.8.3,
+  but is rather broken at present.
+* Automatic Roman numbering of your characters. When you die, a counter
+  of successive generations is incremented and the next character you roll
+  has it added to their name as a Roman numeral (for example Foo XXIII).
+  Some people find it a method to distinguish the 'descendants' of a
+  character
+  This feature is #defined in config.h, and is not compiled in by default
+* Friendly uniques now have their own set of sayings in friendly.txt.
+  Most of those were contributed by D.Stage (dstage@u.washington.edu)
+  and Ethan Sicotte (slit@maine.com)
+* Variable letters and colours to represent the player, depending on
+  race/class (instead of the default white @)
+* Fixed an unwanted interference of timed ego items and their activations,
+  resulting in loss of ego after recharging time has elapsed
+* Arcane branding spell now makes timed weapons of Slaying rather than
+  Trump ones
+* Fixed Petty Dwarves' histories
+* Fixed Eol, Maeglin and their swords once more, to be more in accord
+  with actual Tolkienian narrative
+* Fixed a stupid bug which caused finishing of "find artifact" quests
+  by wielding or picking a normal weapon
+* Horns, beak, tentacles and the like mutations decidedly ruin your
+  charisma level
+* Beastmen and Vampires got their stat bonuses (DEX and INT) improved,
+  at the expense of worse luck
+* Fixed the Create Water spell, which produced a crash
+* Creating small floods with weird attacks now gets a proper description
+* ?=/(|$# monsters no longer cry out in pain
+* No zero scores in the high score table
+* Detecting traps detects traps on chests
+* Detecting doors detects locked doors
+* Reworked some GOOD/EVIL flags on monsters (there are good dragons too now)
+* Three more types of dragons in dragon pits (bronze, gold, pseudo)
+* Dunedain are more prone to get the "resist serious damage" mutation
+* New Dunedain classes (ie. those not in vanilla) now have proper tiles
+  assigned
+* Pernament ESP and temporary ESP combined let you see dumb monsters
+* Fixed a few water spells, disabling ability to flood deep lava, stairs
+  and quest features
+* The O command always displays the god info. W is used for 'W'orshipping
+  (sacrificing). In roguelike keyset they're resp. ^O and ^G
+
+Features added in 0.6c (finished 29.01.1999)
+
+* Changed the way gods are handled. Right now, you only have grace, which
+  increases with offerings and decreases with time (albeit very slowly)
+  and prayers. Different levels of grace will yield certain effects on
+  you; when you are pious enough, you have to find an altar and get
+  crowned, and get a nice (or not) artifact.
+  Deities were reduced to six in number, and so were altars. Altars are more
+  rare - roughly one in five levels, but sometimes there can be two on
+  a level.
+* Priests and paladins are likely to damage WIS (not CON) when over-exerting
+  from lack of mana
+* Vault type is printed when cheat_room is on
+* Some new vaults (mostly the large ones) designed by Chris Weisiger
+* Scythes of Slicing are vorpal
+* Added the whisper/yell patch by Jon D. Boehnker (jboenhker@aol.com)
+
+Features added in 1.0beta (finished 21.02.99)
+
+* The player has an alignment! The good/neutral/evil nature of our @ is
+  directly linked to the god they worship (when changing gods they change
+  alignment), like in NetHack. Alignment + good charisma may cause some of
+  the weaker monsters (but no more than 50%) of your alignment to be created
+  friendly (does not apply to uniques, questors and summoned monsters)
+* Some races start with a specific alignment, some without any (marked '-')
+* Extensive changes to monsters' flags (also see below): coins and Q's
+  no longer animals, yeeks good, drastically reduced the number of evil
+  animal monsters
+* Star signs have some interesting influence on the character
+* Fixed a bug with *identification* of charging artifacts
+* Fixed floating numbers being rounded at the beastmaster's
+* CTRL-V will print features (compilation options) the game was compiled with.
+  Mainly for me checking the ARCN state
+* Fixed automatic weapon repair to adjust it to player's DEX. Now you need
+  to have DEX of at least 13 to be able to repair anything, and even then you
+  have only 1/10 chance each turn to improve it by small amount (warriors
+  repair at double rate). The amount repaired with each try increases
+  exponentially as DEX rises higher. Having DEX of 18/200 or more makes all
+  repair checks succeed
+* Removed the S-Lang scripts support - no longer developed by RR
+* Reworked the final scoring routine. Now includes penalties (percentage
+  modifiers) for having mutations, except for beastmen and CW
+* You are no longer notified about monsters using phase door/teleport when
+  blind
+* New "metric" option allowing the game to display things in kilograms and
+  centimeters instead of pounds and inches
+* Smart monsters don't pick up cursed objects, and no monster will pick
+  up the corpses of its kin
+* Fire/plasma breaths can turn floor and most features into shallow/deep
+  lava, respectively. Cold/ice breaths can freeze lava into floor again
+* Added monsters' vulnerability to electricity, acid and poison (poison for
+  quylthulgs, acid for plants and some mechanical monsters, elec for
+  some water monsters)
+* RES_STON can be used to mark monsters resistant to stoning (other than
+  mimics/undead/constructs). Mainly needed to protect the cockatrices...
+* Vaults have min/max level constraints (most are without any, though).
+  Max level of 0 translates to max level of 127
+* Corrected a fatal bug with Create Water spell once again
+* 'War Branding' spell now does actually inflate/deflate damage dice of
+  a weapon
+* Fixed a bug with number of items on floor when blind
+* Added skill numerical ratings beside descriptions, for easy orientation.
+* Added some "likely mutations", if the player is of evil alignment. Discover
+  for yourself :)
+* Lowered exp penalties for H-Giants (30%) and H-Titans (100%)
+* Fixed breaking random artifacts. Some (rarer) items now have the NOBREAK
+  flag, which means they'll never get damaged in melee.
+* Rings of Sustaining/Resistance fixed weight, random high resistance for
+  the latter
+* New, better rules for damaging weapons: 1) each total loss of HP results
+  in to_hit, to_dam, and damage dice/sides (sometimes) being reduced, 2)
+  after that the whole 'breaking' process starts again, 3) using a scroll
+  of repair will restore lost dice and change minuses to 0, if not
+  cursed, 4) the items are not marked as damaged in any way, they're
+  just slightly deteriorated (the message you get reflects this).
+* Fixed bug with ARCN and newly created savefiles
+* Yipee! At last! Away with the ugly numbers in r_info and the neccesity
+  of updating all your quests when renumbering monsters! Now you can (and
+  indeed must :) give the full name of the monster in quest data. The name
+  must EXACTLY match the one in r_info.txt (case is irrelevant), or else
+  nothing appears
+* Added some monsters and nice items courtesy of Paasi Huttunen
+* Bull Gates can no longer appear in the dungeon or outside, thus solving
+  problems with the M$ quest
+
+Features added in 1.0 (finished 1.03.1999)
+
+* Completely reworked wilderness, now size 16x19. A new town, Zul, added
+  in the mountains of the north (courtesy of Brent ''RaBiD'' Diana)
+* No random quests for unfair monsters if the option is off at startup
+  (if it isn't, and you switch it off later getting sick of S-T Distortions,
+  strange things might happen if such a quest was rolled. You have been
+  warned)
+* Invisibility implemented. It burns LOTS of food, so be careful not to
+  starve. Invisibility spell added to Air realm. Transparency effects
+  implemented, similar to ADOM's.
+* Use of Artifact Creations scrolls can be cancelled without losing the
+  scroll
+* Greatly reduced Water spells costs/fails for mage types
+* Changed vanilla_town option to be asked at startup
+* Inventory slot (quiver) for ammo
+* Monsters can hit traps (quite unbalanced and buggy for now). Smart monsters
+  can disarm traps. Flying monsters are unaffected (not compiled in by
+  default)
+* Reworked critical hits; made maximum probability dependant on class as
+  well as on weapon weight/level. More types of critical hits, with
+  *EARTH SHATTERING* giving as many as 10 times the base damage. This gives
+  warriors which use heavy weapons an extra edge against tough monsters
+* Lowered the percentage of mountains in hilly terrain - the game hung
+  sometimes, being unable to find a place for monsters
+* Final score computation method totally reworked. See the FAQ
+* Tombstone will now mention death from paralyzation
+* You can only sign up for quests when your level is half the quest danger
+  level. IOW you must reach level 2 to do the first quest (Thieves' Den)
+* Tired of making up new player names over and over? Want to save your
+  high score list from monotony? The game can give your character a random
+  male or female name if you do not provide it yourself. Over 800 male
+  and 400 female names (see {m|f}_rnames.txt in lib/info). Feel free to
+  expand this
+
+Features added in 1.0b (Finished 6.03.1999)
+
+* Mostly minor bugfixes: prevent spawning infinite arrows, fix trouble
+  recalling from wilderness, tweak a few monsters, lower cost and value
+  of items giving bonuses to speed, rework Wands of Striking/Storms
+  (appear earlier), fix metric weights in shops, fix druid quest again
+
+Features added in 1.1 (Finished 30.03.1999)
+
+* k_info no longer needs number indexes, like r_info. However, the
+  downside is that some objects have the same names, which leads
+  to confusion when pre-placing objects in a quest or giving rewards.
+  To avoid this, names of Rings, Amulets etc. of Teleportation (the
+  bad ones) have changed.
+  Had to move money to the beginning of k_info, since money objects start
+  and length is defined as constants. Do not add new types of money above
+  the basic 18. You have been warned
+* Added the ability to pre-place monsters in vaults, marking them with a, b...
+  j in the order given on the M: line. Added some new 'typified' vaults.
+* Fixed the generation of preplaced ego-items in quests (see eg. the
+  M$ quest for loads of junk crowns & cloaks)
+* Two-handed weapons; unlike Angband64, you do not gain increased damage
+  from wielding a one-handed weapon with two hands; this is just for
+  realism
+* Reworked tactics: descriptions more grammatical, modifiers shown on
+  top line, only influences fighting/AC (to prevent warriors from
+  getting too good save throws, especially at higher levels)
+* Entering level with random quest will inform you how many monsters
+  are still there (this only applies to soft quest rules)
+* Startup options accesible via the = key when creating character.
+  Unfair monsters moved there, as well as added ironperson options and
+  damage_items
+* Ironpersons start with more food and light (does not apply to scrolls
+  of satisfy hunger)
+* Tweaked frequency of objects in alchemy shop - ?oRepair and !oSK are
+  more frequent, at the expense of ?oSH
+* Food rations in the dungeons are rarer and only appear singly (ditto
+  for slime molds). In general, players, especially ironpersons, are
+  forced to be more dependant on corpses (or scrolls, but these are rarer
+  as well, see above), or spells
+* Fixed a bug with game crashing after recalling back to the city of Zul
+* Added a 'dimension door' spell for monsters (teleport to player).
+  Monsters which have both blink and dimension door will try to 'hit 'n run',
+  if smart
+* No more than seven Nazguls can be created. This does not apply to
+  pre-set Nazguls in quests (although it is not recommended to do so)
+* Amulets of Anti-magic really are helpful now (generate a radius-3 anti
+  magic sphere)
+* Game is able to parse 8-bit characters correctly (eg. in player names),
+  and display date high scores according to current locale date format
+* Vastly expanded the number of terrain grids items may be dropped on.
+  You will be notified about stairs and altars hidden beneath piles of stuff.
+* Expanded the list of uniques' crimes with over 100 entries from a list by
+  malagigi@aol.com. Some of them are rather humorous...
+* Fixed bugs with many quests (thanks to Steve Fisher's inquisitive
+  investigation of the topic)
+* Monster recall info now makes extensive use of newlines, making it way
+  easier to read (and find the info you need). Monsters with long
+  descriptions, like Morgoth, may cause part of the info to be omitted,
+  though
+* Player can be sensitive (intrisically) to fire/cold/elec/acid. You take
+  double damage from the appropriate element in all cases. Nothing short
+  of complete immunity can eliminate this
+* Ent race added, replacing Sprites (I never liked them anyway). -5 to
+  speed, see invis, slow digestion, sensitive to fire, can grow trees as
+  intrisic ability
+* Added artifact descriptions and the code that shows them during
+  *Identify*
+
+Features added in 1.2 (finished 8.05.1999)
+
+* Expanded mindcrafter class, uses foci like in Psiband, has some toggled
+  powers that need mana to upkeep and automatically switch off if it runs
+  out
+* Monsters can be poisoned (weapon or spell). Uniques tend to recover
+  quickly. The poison brand now does x2 damage only (x4 against vulnerable
+  monsters) in compensation for that
+* Secret doors can be locked (50% chance); door state is determined upon
+  finding
+* Quests may be marked as 'one-run' - once you exit them, they are no longer
+  available, and you get no reward (currently Thieves Den, Vapour, Orc Camp,
+  Spawning Pits)
+* Druid quest changed to chasing out a hostile necromancer, moved his hideout
+  too
+* Moved vanilla_town to the startup options screen
+* If show_labels is on and items can be damaged, weapon/armour status will be
+  displayed in {} for quick inspection, except if the item never breaks (which
+  will help to quickly sort these out)
+* Dragon scale mails never break
+* Allowed ammo to be fired from the backpack if quiver is empty
+* Golems have -2 to DEX
+* Chainsword now gives -2 to DEX
+* Food which makes you vomit gives no nutritional benefit
+* Explicitly warn the player when branding failed because of lack of
+  weapon wielded, but only when alert_failure is on
+* Fixed game crashes when haggling, shopkeepers saying trash etc.
+* Inscribing an object with !! will notify you about it being recharged
+* Smart monsters won't waste time slowing you over and over
+* Rangers learn monster stats more quickly
+* Arrows and bolts fired by monsters (but not magic missiles) may now
+  miss if your AC is very high compared to monster's
+* Players get more mana now with an INT above 18/10, since the internal
+  tables have been reworked. It evens out at higher levels/INT. Especially
+  important for mindcrafters
+* Fixed obsolete help text when choosing magic realm(s)
+* Now includes RR's main-com.c (a dummy interface used to dump info
+  about savefile on stdout, useful for running competitions)
+* (Chaos) Warriors actually get to pay for the branding service in their guilds
+* Increased number of possible shopkeepers for each shop to 10
+* Increased shopkeeper purses to 32-bit, but the maximum one is 150K
+  currently (BM, a very unattractive personage)
+* Increased guild service prices to 32-bit
+* Added easy_sensing option, originally by Tim Baker
+* Scroll of Hardening will make unbreakable any weapon that isn't so
+  already. Rather rare and costly
+
+Features added in 1.3 (finished 8.06.1999)
+
+* Game engine updated to match Z 2.2.5 (mostly). Two new quests
+* Player ghosts implemented, will drop a randart, great item or money if
+  slain (depending on depth)
+* It is possible to log game notes and your progress in a log file called
+  after your character's name; use the ':' command to append a note to
+  the file. You can also use some 'metavariables' (refer to command.txt
+  for the gory details)
+* Finally added the wand and rod stacking patches from OAngband
+* Revised monster-trap reactions, trap-setting monsters are immune, monsters
+  don't fall into traps in vaults
+* Changed monster, object names to start with lower case, except uniques.
+  Changed scroll syllabes to uppercase in exchange
+* Differentiated money types, adding new ones like nickel, iron or brass,
+  to eliminate duplicate names (problems with .prf tile assignments)
+* Added shafts which can move you a few levels up/down and thus greatly
+  reduce the tedium of diving and getting back. There will be only one
+  type of shaft on a level - or possibly none. Shafts can also be used
+  to bypass random quests
+* Jason Ellis and Lars Helgeland pointed out some anomalies with xp for
+  killed monsters
+* Recharging timeout of rods is now read from the object's pval
+* Golems have very lousy starting magic devices skill
+* Fixed powers info for mindcrafters
+* Coloured spell info displays
+* In inventory and equip listings, *identified* items have indices
+  displayed in yellow
+* Weapons can have more interesting properties (eg. two-handed swords are
+  base +3 to hit, +3 to dam)
+* Changed the way in which weapons are displayed (now it's like 'a mace
+  (+4, 2d4+2)'
+* Rogues can no longer backstab with 2H weapons, nor with maces and such.
+  That leaves light swords and spears (other polearms are 2H) for the
+  task
+* Better reactions of monsters when hit
+* Adapted the monspeak patch by Matt Graham
+* Rogues get +1 to stealth every 5 levels, monks and rangers - every 10 levels
+* Fixed bug with failed completed quests
+
+Features added in 2.0 (finished 25.08.1999)
+
+*MAJOR* rewrite and rebalancing of the game!
+
+* Game engine updated to match Z 2.2.6 (mostly). One new quest (Old Castle
+  by Shayne Steele)
+* Monsters have less HP (Morgoth has 10000) and smaller AC (Morgoth has 60,
+  but it's not the max)
+* Therefore, attacking routines are softened to rely more on skill and
+  less on magical to-hit bonuses. But base skills are reduced, so that
+  the (internal) value rarely exceeds 100 for really powerful warriors
+* Changed the way in which allowable weapon weight is calculated. Now it is
+  weighted (excuse the pun :) - 2/3 from your class allowance and 1/3 from
+  your STR. That makes for example priests with STR 18/140 just barely able
+  to lift maces of disruption, and don't you ever think about wielding Grond
+  without penalties!
+* Introduced 'scalar time' and an Elvish calendar. The 32-bit time variable
+  is enough for over 136 years of gameplay (a little short of a loa...). Also
+  added two wizard commands (+ and -) to help test the calendar (move a
+  year forth/back)
+  Also, the player has a birthday. A generous luck increase is allowed for
+  when the birthday date coincides with the calendar's date
+* Better food balance: slow digestion hard to get, rations more expensive,
+  scrolls of satisfy hunger rarer, service at inn hardly appealing...
+* Added weight to corpses, different body parts have different weight
+  ratios, and eating corpses confers nutritional benefit (or possibly not...)
+  based on weight AND current decay state
+* Added decaying corpses in pack/on floor, status affixed to description
+* Ents have better histories
+* Blood of Life is hopefully harder to come by (3750' base depth) and
+  ten times as costly, should it appear in the BM
+* Flattened certain bonus curves in tables.c (+ to-hit, to-dam from STR etc.)
+* Reduced possible bonuses to rings of: damage, accuracy, slaying, acid,
+  fire, ice by 5-6 on average. Same with excellent weapons and armour (sc.
+  random artifacts) bonuses
+* No more digging with weapons or bare hands! Exception: monks of at least
+  level 30
+* Treasure veins are rarer ;>
+* Feanorian lamps appear around 1000' and provide pernament radius two light;
+  artifact lights moved deeper (Phial to 1500')
+* Quest number limited to 10; quests only occur between 3000 and 4000 feet
+  and tend to be particularly nasty; you can avoid them using shafts, though
+* Poison now does more damage per round the more you are poisoned. Healing
+  potions (except potion of life) no longer cure poison. Poison resistance
+  doesn't fully protect against poison in 1/3 cases (1/9 if double), but
+  if resisting the poisoning is reduced by 6/6+d6 (50-87%). You still take
+  the equivalent physical damage (except from breaths)
+* Allowed each game item to have different bonuses (or penalties) to
+  player stats via a S: line; the old STR...CHR flags are still needed
+* By a mismatched W: line, corpses could appear on floor and in monster drops,
+  often flagging the level as special... the current corpse handling is like
+  stuffing dirty socks under a bed, but it works most of the time
+* Cursed items cannot be activated
+* Reorganized part of the status line to display various conditions like
+  bless, protevil, timed infra, timed invis etc.
+* Moved preserve, maximize and autoscumming modes to startup options
+* Added the 'fractal caves' patch by Steven Fuerst; makes dungeon rooms more
+  convoluted, if bizarre. Fractal caves are optional
+* Added the 'labirynth rooms' patch by Mark Kvale (later integrated into
+  SF's patch)
+* Upped intrisic ability damage for imps, klackons and kobolds, as well as
+  for the spit fire/acid mutation
+* Added new tower recharge handling from Z
+* Elemental breath attacks downgraded, others upgraded (plasma, sound, chaos)
+* Moved some options around because the fifth set grew out of its size
+* Added confusion, poisoning and stunning to show up on monster health bars
+* Added multiple bolts and balls (randomly showered) to possible spell forms.
+  Changed the spells Fiery Shower (Fire), Call the Abyss (Water) and High
+  Voltage II (Air) to use them (some artifact activations, too?)
+* Bug fixed: amount of rooms generated was not randomized
+* Bug fixed: unwearable amulets
+* Bug fixed: unbreakable weapons were breaking
+* Bug fixed: Pisces sign had no effect
+* Bug fixed: HURT_FIRE and HURT_COLD displayed no message
+* (Obscure) bug fixed: easy_disarm and easy_floor were colliding with each
+  other
+* Finally (?) squashed Klingsor quest bugs
+
+Features added in 2.0 final (finished 29.08.1999)
+
+* Fixed the quest bugs which Z 2.2.6 introduced
+* Fixed a bug with displaying the town name
+* Fixed the random quests selection prompt and help text
+* Made rubble traversable by player and monsters. The current solution
+  is very crude, though - I hope to improve on it when I translate the
+  grid flags system from Pern
+
+Features added in 2.01 (finished 15.09.1999)
+
+* Added the grid flag system from Pernband to f_info.txt
+* Fixed problems with leftover CRs in text files
+* Decaying corpses in floor stacks are now handled properly
+* Gave main gauches a small AC bonus, reflecting its shield-like purpose
+* Chaos blades, BDSMs and CDSMs give resist confusion
+* Added a new Ironman option to always generate 'arena' levels
+* Updated the 'fractal caves' patch by Steven Fuerst (two new random vault
+  types)
+* Bug fixed: using wands et al. reset the calendar
+* Bug fixed: night did not fall at town
+* Bug fixed: logging metavariables didn't always work
+
+Features added in 2.02 (finished 08.11.1999)
+
+* Game updated to match Z 2.3.1 (mostly). This includes conical breaths
+  and the 'fake artifacts' patch. Nightmare mode not shipped - you're
+  not playing GSNDooM!
+* Added a new main-gcu.c from Angband 64, including sound support and much
+  better console colours
+* Object and monster flags are now 64-bit, doubling their capacity
+* Group monsters how have a 'number of appearing' as an XdY roll, which
+  progressively reaches the maximum as you go deeper (jackals at 5000',
+  anyone?) This leads to a dungeon that is a little bit less crowded
+* Some former 2H weapons are now 'could-2H' weapons. It means that if you
+  use such a weapon and a shield, all damage you do in melee will be halved
+* Reduced the player_type struct by about 40 bytes using a 64-bit field
+  for player resistances et al. Because fifteen bits per prop is a terrible
+  thing to waste... And yes, this will incapacitate any further 'multiple
+  resistances' movement
+* Added resistances to gravity, inertia and force. Typically for mindcrafters
+* Added cold and fear aura to objects
+* Open levels may be filled with dark chasms where there are no corridors
+* You can now summon monsters by name in debug mode
+* Fixed slowed/hasted monsters a bit
+* Fixed FORCE_DEPTH to disallow the monster on any level but its base one;
+  fixes Sauron/Morgoth problems (especially in ironperson mode)
+* Water breaths added for some monsters (water hounds should NOT cast water
+  bolts!). Water hounds = acid hounds, and aquatic hounds now breathe water
+* Added separate skills for each type of weapons (blunt, polearms, axes,
+  daggers, swords, two-handed). This makes players stick to the weapon
+  type preferred by their class, or else. Priest and mage 'icky weapon'
+  penalties have been removed
+* Added the random name generator from Cth and made a shot at providing Entish
+  names
+* Added 'the foul and ancient stat curse' to some objects...
+* 'Gate' type spells have explanatory messages
+* Changed some of the quest rewards to be more useful
+* Weapons of life au Pernband, BUT considerably weakened - they now add from 5%
+  to 50% to your max HP
+* Simplified the character screen and threw out the three 'Ben' table modes.
+  In anticipation of all the new item flags, there's no place to show
+  everything... Also redesigned the three remaining screens, so that there
+  is more place for player flags
+* Bug fixed: rings of stealth are now useful
+* Bug fixed: monsters can no longer walk on chasms
+* Bug fixed: quest monsters can't be cloned any more
+
+Features added in 2.03 (finished 23.12.1999)
+
+* Game updated to match Z 2.2.8
+* Added ~170 new traps from A/64 and Pern in a completely new system,
+  replacing the old ones
+* More terrible object curses as suggested by Luc French on zangband list
+* Monster recall now uses colour for some parts
+* Included the sixth release of the fractal caves patch by Steven Fuerst
+* Cut down recharge time for dragon scale mails, making them competitive
+  with artifacts
+* Gave undead better nutrition from corpses
+* Created corpses section in the mon-info.spo file, thanks to Ed Cogburn
+* Cut down the price of amulets and rings of SD, some food items. Also
+  added a few new dishes.
+* More (logical) corpse eating effects
+* Air books are no longer sold in shop no. 6
+* More problems with leftover CRs in text files fixed
+* Some thematic vaults fixed and improved
+
+Features added in 2.1 (finished 16.02.1999)
+
+* Made monsters spell flags 64-bit, giving room for 92 more spells
+* Added some DooM monsters from Zce and associated spells
+* With see invisible, your @ is drawn at all times (even if invisible)
+* Cursed artifacts can be activated, at a lesser success percentage
+* Added support for 256 colours in -mx11 and -mxaw
+* Added support for three differents fonts in -mx11
+* Added panel centering on player
+* Vorpal blades damage is toned down
+* Force attacks can push back monsters
+* Fixed some monsters not appearing anywhere
+* Implemented polymorphing based on Pern's 'incarnate monster' code.
+  The innate attacks are used if you don't wield a weapon (some monsters
+  can't). Innate spells can be cast like built-in powers, with failure
+  rate. Breath power is proportional to HP and must be recharged for
+  a couple of turns. Other spells also work every X turns, where X is
+  the r_info spell frequency. You CAN multiply (just try being an
+  unmaker ;) Like in NH, monsters have body parts to determine what can
+  be equipped. Polymorph traps and staffs. Made the kill list mention
+  genocided species
+  Side note: you CAN genocide the player and be killed when you return
+  to human form, but why would you do that is a mystery to me
+* Super genocide added which lets you pernamently destroy a race from the
+  current game. Which is fun to go on with until you accidentally polymorph
+  into a destroyed monster. Or if you find yourself a helpless summoner
+  and your spells fail because you've taken care than no stinkin' cyberdemon
+  be around
+* Changes -mgcu colours again, now more consistent and actually has 16
+  different colours without any extra hacks (although light umber and
+  umber differ but slightly)
+
+Features added in 2.11 (finished 29.02.2000)
+
+* I will no longer retain compatibility with Z and code flow will be restricted.
+  They have moved too far for this to be worthwhile (I don't want Python yet)
+* Auto-destroying objects extends to objects on floor
+* Fixed the 'humans have been genocided' message to be more generic
+* Ten new vaults by CW
+* Fixed monsters not extinct being properly
+* Fixed monsters remaining extinct and traps remaining indentified when the same savefile
+  was used again
+* Fixed pointer problems when eating; removed all gods and alignment code. This was
+  never stable anyway...
+
+Known bugs:
+
+* Items which
+ weigh 0.1 lb do not show up properly when metric measurements
+  are on (the last digit is surpressed, leaving 0.0(5))
+* Luck has to be improved. Luck sustain item flag added but not used (hobbits
+  have their luck sustained intrinsically, though)
+* The game may still exhibit bugs in wilderness, particularly around the Zul
+  town. Some of these may crash the game and your savefile, so be careful
+* Unidentified missile lanuchers show redundant () in description
+* When stoned, you have some turns to attempt to recover, but stoned
+  monsters die instantly
+* If you're playing a class with two elemental realms and use a spell
+  which conjures a spirit/elemental, only one of your classes will
+  be used (in the order air, fire, earth, water). Eg. if you have
+  Air and Water spells and summon an elemental from the Water book,
+  an air elemental will appear.
+
+All comments to: Gwidon S. Naskrent (naskrent@artemida.amu.edu.pl)
+
+Last updated: 8 May 1999
